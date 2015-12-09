@@ -1,0 +1,31 @@
+<% include header.html %>
+
+<div class="container">
+    <% if (success) { %>
+    <p class="bg-success color-green">
+      <%= success %></p>
+    <% } %>
+    <% if (error) { %>
+    <p class="bg-warning color-red">
+      <%= error %></p>
+    <% } %>
+  <div class="row">
+  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 editSection">
+    <form class="form-signin" method="post">
+      <input type="text" name="postTitle" class="form-control" placeholder="标题" required autofocus="">
+      <textarea type="text" name="postMarkdown" class="" rows="20" required placeholder="正文"></textarea>
+      <button class="btn btn-primary btn-block savePostBtn" type="submit">记住</button>
+    </form>
+    <div class="clearfix"></div>
+  </div>
+  <div class="col-sm-3 col-md-3 col-lg-3 userinfoSection">
+    <img src="images/write.jpg" class="img-responsive userimg" alt="Responsive image">
+    <h5 class="usermood">无言</h5>
+    <p class="userautograph">(闲来无事不从容..)</p>
+    <p class="userautograph">正常情况下是心能常喜。有脾气的时候是傲娇的。逃不出自己的围城。爱大叫爱大笑。过着干净的、犯二的、忙碌的小日子。  </p>
+    <div class="clearfix"></div>
+  </div>
+</div>
+</div>
+<div class="clearfix"></div>
+<% include footer.html %>

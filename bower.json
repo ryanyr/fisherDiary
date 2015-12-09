@@ -1,0 +1,20 @@
+{
+  "name": "fisher diary",
+  "version": "0.0.1",
+  "authors": [
+    "yuran <335023379@qq.com>"
+  ],
+  "description": "this is a diary",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "ryan",
+    "fisher"
+  ],
+  "license": "MIT",
+  "homepage": "index",
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}

@@ -1,0 +1,33 @@
+<% include header.html %>
+
+<div class="container">
+  <div class="row">
+  <div class="col-sm-3 col-md-3 col-lg-3 userinfoSection">
+    <img src="images/write.jpg" class="img-responsive userimg" alt="Responsive image">
+    <h5 class="usermood">无言</h5>
+    <h5 class="usermood">无言</h5>
+    <p class="userautograph">(闲来无事不从容..)</p>
+    <p class="userautograph">正常情况下是心能常喜。有脾气的时候是傲娇的。逃不出自己的围城。爱大叫爱大笑。过着干净的、犯二的、忙碌的小日子。  </p>
+    <div class="clearfix"></div>
+  </div>
+  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 editSection">
+  <ul class="userpagePosts">
+    <% posts.forEach(function (post, index) { %>
+    <li>
+    <h4><a><%= post.postTitle %></a></h4>
+    <p class="info">
+        作者：<%= post.authorname %>
+        日期：<%= post.published_at %>
+    </p>
+    <p class="postcontent"><%- post.html %></p>
+    <div class="clearfix"></div>
+    </li>
+    <% }) %>
+  </ul>
+    <div class="clearfix"></div>
+  </div>
+
+</div>
+</div>
+<div class="clearfix"></div>
+<% include footer.html %>

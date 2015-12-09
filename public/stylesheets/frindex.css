@@ -1,0 +1,62 @@
+/*base css*/
+
+*{
+  box-sizing:border-box;
+}
+html{font-size:20px; height: 100%;}
+body {
+  font-size: 0.8rem;
+  font-family: "microsoft yahei",'Helvetica Neue',Helvetica, Verdana, Arial, sans-serif, "Times New Roman", '宋体', simsun;
+  margin: 0 auto;
+  text-align:left;
+  background-color:initial;
+}
+.container{
+  max-width: 1000px !important;
+}
+.marpad0{margin: 0; padding: 0;}
+.color-white{
+  color:#fff;
+}
+.color-red{
+  color:red;
+}
+.color-green{
+  color:#60b63c;
+}
+.color-blue{
+  color:#337ab7;
+}
+.font-2rem{
+  font-size:2rem;
+}
+a:link,a:visited,a:hover,a:active{ text-decoration: none;}
+.container{margin: 0 auto;}
+.left{float: left;}
+.right{float: right;}
+.clear{clear: both;}
+.container .jumbotron, .container-fluid .jumbotron {padding: 1rem;border-radius: 2px;margin-bottom: 0.5rem;}
+.jumbotron h1{color:#000;margin-top: 0;}
+.jumbotron p{margin-bottom: 0;font-size: 0.8rem;font-weight: normal;}
+.logobrand{}
+.logobrand img{width: 1.2rem;height: 1.2rem;display:inline-block;}
+.logobrand span{width: auto;height: 2rem;display:inline-block; color: #fff;}
+.postlist{margin: 1rem; border-bottom: 1px dashed #999;list-style: none;}
+.postbox{margin: 0;}
+.postlist .info{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem;color: #999;}
+.postlist p{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;color: #2e2e2e;font-size: 0.6rem;}
+.user-author{padding-right: 0.2rem;}
+.form-signin{ margin-bottom: 1rem; text-align: center;}
+.form-signin input{ margin-bottom: 0.5rem;}
+.editSection{ display: inline-block;}
+.editSection textarea{ width: 100%; resize:none;padding: 6px 12px;font-size: 0.7rem;line-height: 1.42857143;color: #555;background-color: #fff; background-image: none; border: 1px solid #ccc; border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075); box-shadow: inset 0 1px 1px rgba(0,0,0,.075); -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s; -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;}
+.savePostBtn{ width: 5rem;}
+.userinfoSection{ background: #efefef; display: inline-block; margin-left:15px; margin-right:15px; padding:1rem; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;}
+.userimg{ box-shadow: 5px 5px 5px #999; -webkit-box-shadow: 5px 5px 5px #999; -moz-box-shadow: 5px 5px 5px #999;}
+.userautograph{ display: block; margin: 0 0 10px; font-size: 0.5rem; line-height: 1.42857143;color: #333; word-break: break-all; word-wrap: break-word;}
+.userpagePosts{ padding:0; margin-top: 0;}
+.userpagePosts li{ list-style: none; padding: 0.2rem; border-bottom: 1px dashed #ccc; padding-bottom: 1rem; padding-top: 0.7rem;} 
+.userpagePosts li:first{ padding-top: 0;}
+.userpagePosts .info{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem;color: #999;}
+.userpagePosts p{font-size: 0.7rem; color: #333;}

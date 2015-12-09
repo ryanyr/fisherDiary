@@ -1,0 +1,25 @@
+<% include header.html %>
+
+<div class="container">
+  <div class="col-xs-12">
+    <form class="form-signin" method="post">
+      <h3 class="form-signin-heading text-left">登录账号</h3>
+      <input type="email" name="email" class="form-control" placeholder="邮箱地址" required autofocus="">
+      <input type="password" name="password" class="form-control" placeholder="密码" required>
+      <button class="btn btn-primary btn-block" type="submit">登录</button>
+    </form>
+    <p>
+      还没有账号?
+      <a href="/reg">注册一个 :-)</a>
+    </p>
+    <% if (success) { %>
+    <p class="bg-success color-green">
+      <%= success %></p>
+    <% } %>
+    <% if (error) { %>
+    <p class="bg-warning color-red">
+      <%= error %></p>
+    <% } %></div>
+</div>
+
+<% include footer.html %>
