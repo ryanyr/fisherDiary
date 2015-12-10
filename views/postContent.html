@@ -1,55 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title><%= title %></title>
-  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/stylesheets/offcanvas.css" rel="stylesheet">
-  <link href="/stylesheets/frindex.css" rel="stylesheet">
-</head>
-<body>
-  <nav class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">菜单</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand logobrand" href="#">
-          <img src="/images/fish.png" class="img-responsive" alt="Responsive image">
-          <span>若鱼日记</span>          
-        </a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active">
-            <a href="#">首页</a>
-          </li>
-          <li>
-            <a href="#about">我的主页</a>
-          </li>
-          <li>
-            <a href="#contact">发现</a>
-          </li>
-          <li>
-            <a href="#contact">登录</a>
-          </li>
-          <li>
-            <a href="#contact">注册</a>
-          </li>
-          <li>
-            <a href="#contact">退出</a>
-          </li>
-        </ul>
-      </div>
+<% include header.html %>
+
+<div class="container">
+  <div class="col-xs-12">
+    <div class="userinfo">
+      <p>昵称：<%= user.nickn%></p>
+      <p>加入：<%= user.create_at%></p>
+      <p>心情：<%= user.mood%></p>
+      <p>签名：<%= user.autograph%></p>
+      <p>简介：<%= user.selfintro%></p>
+      <button class="btn btn-primary btn-block">修改信息</button>
+      <a>修改密码？</a>
     </div>
-  </nav>
-  <div class="container">
-    <p><a href="#">注册/登录</a>欢迎回来，<a href="#">Tofu。</a></p>
+    <form class="form-signin hidden" method="post">
+      <h3 class="form-signin-heading text-left">修改信息</h3>
+      <input type="text" name="nickn" class="form-control" placeholder="昵称" required>
+      <input type="text" name="mood" class="form-control" placeholder="心情">
+      <input type="text" name="autograph" class="form-control" placeholder="签名">
+      <input type="text" name="selfintro" class="form-control" placeholder="简介">
+      <button class="btn btn-primary btn-block" type="submit">好了</button>
+    </form>
   </div>
+</div>
+
+<% include footer.html %>

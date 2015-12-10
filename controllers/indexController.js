@@ -1,4 +1,5 @@
 var Post = require('../modules/postModule');
+var User = require('../modules/userModule');
 
 module.exports = {
 
@@ -7,7 +8,9 @@ module.exports = {
 		if (req.session.user === undefined || req.session.user === null) {
 			logflag = false;
 		}
-		Post.find({}).sort({'updated_at':-1}).exec(function(err, data) {
+		Post.find({}).sort({
+			'updated_at': -1
+		}).exec(function(err, data) {
 			var posts = [];
 			if (err) return console.error(err);
 			if (data) {
@@ -90,14 +93,29 @@ module.exports = {
 			logflag = false;
 			res.redirect('/login');
 		}
-		res.render('userCenter', {
-			title: '若鱼日记-设置',
-			user: req.session.user,
-			loged: logflag,
-			liFlag: 6,
-			success: req.flash('success').toString(),
-			error: req.flash('error').toString()
+		var userid = req.session.user._id;
+		User.findOne({
+			_id: userid
+		}).exec(function(err, data) {
+			var userdata;
+			if (err) return console.error(err);
+			if (data) {
+				console.log('find user info.');
+				userdata = data;
+			} else {
+				console.log('find no user.');
+				res.redirect('/login');
+			}
+			res.render('userCenter', {
+				title: '若鱼日记-设置',
+				user: userdata,
+				loged: logflag,
+				liFlag: 6,
+				success: req.flash('success').toString(),
+				error: req.flash('error').toString()
+			});
 		});
+
 	}
 
 	,
@@ -110,7 +128,9 @@ module.exports = {
 		var userid = req.session.user._id;
 		Post.find({
 			authorid: userid
-		}).sort({'updated_at':-1}).exec(function(err, data) {
+		}).sort({
+			'updated_at': -1
+		}).exec(function(err, data) {
 			var posts = [];
 			if (err) return console.error(err);
 			if (data) {

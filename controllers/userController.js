@@ -25,7 +25,6 @@ module.exports = {
 				})
 			}
 		});
-
 	},
 
 	doLogin: function(req, res) {
@@ -52,5 +51,52 @@ module.exports = {
 			req.session.user = doc;
 			return res.redirect('/homepage');
 		});
+	},
+
+	doUserinfo: function(req, res) {
+		console.log('Userinfo edit? oh good..');
+		var userid = req.session.user._id;
+		var nickn = req.body.nickn;
+		var mood = req.body.mood;
+		var autograph = req.body.autograph;
+		var selfintro = req.body.selfintro;
+		//mongooseModel.update(conditions, update, options, callback);
+		var conditions = {
+			_id: userid
+		};
+		var update = {
+			$set: {
+				nickn: nickn,
+				mood: mood,
+				autograph: autograph,
+				selfintro: selfintro
+			}
+		};
+		var options = {
+			upsert: true
+		};
+		User.update(conditions, update, options, function(err) {
+			if (err) {
+				console.error(err);
+			} else {
+				console.log('update ok!');
+				User.findOne({
+					_id: userid
+				}, function(err, doc) {
+					if (err) return;
+					if (!doc) {
+						console.log('no user like this');
+						req.flash('error', '用户不存在');
+						return res.redirect('/userCenter');
+					}
+					console.log(doc);
+					req.session.user = doc;
+					return res.redirect('/userCenter');
+				});
+
+
+			}
+		});
 	}
+
 };

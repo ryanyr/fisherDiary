@@ -60,3 +60,9 @@ a:link,a:visited,a:hover,a:active{ text-decoration: none;}
 .userpagePosts li:first{ padding-top: 0;}
 .userpagePosts .info{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem;color: #999;}
 .userpagePosts p{font-size: 0.7rem; color: #333;}
+.usercenterinfo{ padding: 1rem; background: #efefef;}
+.usercenterinfo p{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem;color: #999;}
+.changepwd{ display: inline-block; margin-left: 2rem; font-size: 0.7rem; cursor: pointer;}
+#usercenterform{ margin-top: 1rem; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem !important;color: #999;}
+.usercenterform .selfintro{ resize:none !important;}
+.usercenterform .userinfobtn{ text-align: left; padding-top: 0.5rem;}

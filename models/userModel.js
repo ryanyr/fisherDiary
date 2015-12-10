@@ -46,15 +46,7 @@ var userSchema = new Schema({
 		type: String,
 		default: 'CN'
 	},
-	last_login: {			
-		type: Date,
-		default: Date.now
-	},
 	create_at: {			
-		type: Date,
-		default: Date.now
-	},
-	updated_at: {			
 		type: Date,
 		default: Date.now
 	}
