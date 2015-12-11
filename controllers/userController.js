@@ -1,4 +1,5 @@
 var User = require('../modules/userModule');
+var Post = require('../modules/postModule');
 
 module.exports = {
 
@@ -93,8 +94,21 @@ module.exports = {
 					req.session.user = doc;
 					return res.redirect('/userCenter');
 				});
-
-
+			}
+		});
+		Post.update({
+			authorid: userid
+		}, {
+			$set: {
+				authorname: nickn
+			}
+		}, {
+			upsert: true
+		}, function(err) {
+			if (err) {
+				console.error(err);
+			} else {
+				console.log('post relate user info update.');
 			}
 		});
 	}

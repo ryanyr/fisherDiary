@@ -143,6 +143,7 @@ module.exports = {
 			res.render('userPage', {
 				title: '若鱼日记-个人主页',
 				loged: logflag,
+				user: req.session.user,
 				liFlag: 4,
 				posts: posts,
 				success: req.flash('success').toString(),
