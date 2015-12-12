@@ -96,20 +96,15 @@ module.exports = {
 				});
 			}
 		});
-		Post.update({
+		Post.find({
 			authorid: userid
-		}, {
-			$set: {
-				authorname: nickn
+		}).exec(function(err, docs) {
+			if (err) return console.error(err);
+			for (var i = 0; i < docs.length; i++) {
+				docs[i].authorname = nickn;
+				docs[i].save();
 			}
-		}, {
-			upsert: true
-		}, function(err) {
-			if (err) {
-				console.error(err);
-			} else {
-				console.log('post relate user info update.');
-			}
+			console.log('post author info updated.');
 		});
 	}
 

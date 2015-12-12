@@ -2,12 +2,15 @@
 
 <div class="container">
   <div class="row">
-  <div class="col-sm-3 col-md-3 col-lg-3 userinfoSection">
+  <div class="col-xs-11 col-sm-3 col-md-3 col-lg-3 userinfoSection">
+    <div class="infosection">
     <img src="images/write.jpg" class="img-responsive userimg" alt="Responsive image">
-    <h5 class="usermood"><a>无言</a></h5>
-    <h5 class="usermood">无言</h5>
-    <p class="userautograph">(闲来无事不从容..)</p>
-    <p class="userautograph">正常情况下是心能常喜。有脾气的时候是傲娇的。逃不出自己的围城。爱大叫爱大笑。过着干净的、犯二的、忙碌的小日子。  </p>
+    <h5 class="usermood"><a><%= user.nickn%></a></h5>
+    <p class="userautograph">加入：<span class="color_6f6f6f"><%= user.create_at %></span></p>
+    <p class="userautograph">心情：<span class="color_6f6f6f"><%= user.mood%></span></p>
+    <p class="userautograph">签名：<span class="color_6f6f6f"><%= user.autograph%></span></p>
+    <p class="userautograph">自我介绍：<span class="color_6f6f6f"><%= user.selfintro%></span></p>
+    </div>
     <div class="clearfix"></div>
   </div>
   <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 editSection">

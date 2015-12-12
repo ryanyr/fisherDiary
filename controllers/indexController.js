@@ -76,14 +76,32 @@ module.exports = {
 			logflag = false;
 			res.redirect('/login');
 		}
-		res.render('edit', {
-			title: '若鱼日记-编辑',
-			user: req.session.user,
-			loged: logflag,
-			liFlag: 5,
-			success: req.flash('success').toString(),
-			error: req.flash('error').toString()
+		var userid = req.session.user._id;
+		User.findOne({
+			_id: userid
+		}).exec(function(err, data) {
+			var userdata;
+			if (err) return console.error(err);
+			if (data) {
+				console.log('find user info.');
+				userdata = data;
+				console.log(userdata);
+			} else {
+				console.log('find no user.');
+				res.redirect('/login');
+			}
+			res.render('edit', {
+				title: '若鱼日记-编辑',
+				user: userdata,
+				loged: logflag,
+				liFlag: 5,
+				success: req.flash('success').toString(),
+				error: req.flash('error').toString()
+			});
 		});
+
+
+
 	}
 
 	,
@@ -126,6 +144,20 @@ module.exports = {
 			res.redirect('/login');
 		}
 		var userid = req.session.user._id;
+		var userdata;
+		User.findOne({
+			_id: userid
+		}).exec(function(err, data) {
+			if (err) return console.error(err);
+			if (data) {
+				console.log('find user info.');
+				userdata = data;
+				console.log(userdata);
+			} else {
+				console.log('find no user.');
+				res.redirect('/login');
+			}
+		});
 		Post.find({
 			authorid: userid
 		}).sort({
@@ -143,7 +175,7 @@ module.exports = {
 			res.render('userPage', {
 				title: '若鱼日记-个人主页',
 				loged: logflag,
-				user: req.session.user,
+				user: userdata,
 				liFlag: 4,
 				posts: posts,
 				success: req.flash('success').toString(),
