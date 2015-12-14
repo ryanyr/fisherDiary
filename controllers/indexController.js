@@ -145,6 +145,7 @@ module.exports = {
 		}
 		var userid = req.session.user._id;
 		var userdata;
+		var posts = [];
 		User.findOne({
 			_id: userid
 		}).exec(function(err, data) {
@@ -157,31 +158,32 @@ module.exports = {
 				console.log('find no user.');
 				res.redirect('/login');
 			}
-		});
-		Post.find({
-			authorid: userid
-		}).sort({
-			'updated_at': -1
-		}).exec(function(err, data) {
-			var posts = [];
-			if (err) return console.error(err);
-			if (data) {
-				console.log('find user posts.');
-				posts = data;
-			} else {
-				console.log('user has no posts.');
-				posts = [];
-			}
-			res.render('userPage', {
-				title: '若鱼日记-个人主页',
-				loged: logflag,
-				user: userdata,
-				liFlag: 4,
-				posts: posts,
-				success: req.flash('success').toString(),
-				error: req.flash('error').toString()
+			Post.find({
+				authorid: userid
+			}).sort({
+				'updated_at': -1
+			}).exec(function(err, data) {
+				if (err) return console.error(err);
+				if (data) {
+					console.log('find user posts.');
+					posts = data;
+				} else {
+					console.log('user has no posts.');
+					posts = [];
+				}
+				res.render('userPage', {
+					title: '若鱼日记-个人主页',
+					loged: logflag,
+					user: userdata,
+					liFlag: 4,
+					posts: posts,
+					success: req.flash('success').toString(),
+					error: req.flash('error').toString()
+				});
 			});
 		});
+
+
 
 	}
 };
