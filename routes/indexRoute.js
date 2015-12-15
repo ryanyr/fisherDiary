@@ -17,6 +17,8 @@ module.exports = function(){
 
 	indexRouter.route('/userPage').get(indexController.userPage);
 
+	indexRouter.route('/post/:postid').get(indexController.postContent);
+
 
 	return indexRouter;
 }

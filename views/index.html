@@ -25,12 +25,12 @@
         <li class="marpad0 postlist">
           <div class="col-xs-12 col-lg-10 marpad0">
             <h4>
-            <a href="<%= post.url %>">
+            <a href="/post/<%= post._id %>">
               <%= post.postTitle %></a>
             </h4>
             <p class="info">
               作者：
-              <a class="user-author" href="<%= post.url %>">
+              <a class="user-author" href="/user/<%= post.authorid %>">
                 <%= post.authorname %>
               </a>&nbsp;
               日期：

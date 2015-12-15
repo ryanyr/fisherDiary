@@ -182,8 +182,50 @@ module.exports = {
 				});
 			});
 		});
+	}
 
-
+	,
+	postContent: function(req, res) {
+		var logflag = true;
+		if (req.session.user === undefined || req.session.user === null) {
+			logflag = false;
+			res.redirect('/login');
+		}
+		var postid = req.params.postid;
+		console.log(postid);
+		var userid = req.session.user._id;
+		var postinfo;
+		var userdata;
+		User.findOne({
+			_id: userid
+		}).exec(function(err, data) {
+			if (err) return console.error(err);
+			if (data) {
+				console.log('find user info.');
+				userdata = data;
+				Post.findOne({
+					_id: postid
+				}).exec(function(err, post) {
+					if (err) return console.error(err);
+					if (post) {
+						console.log(post);
+						postinfo = post;
+						res.render('postContent', {
+							title: '若鱼日记-设置',
+							user: userdata,
+							post: postinfo,
+							loged: logflag,
+							liFlag: 6,
+							success: req.flash('success').toString(),
+							error: req.flash('error').toString()
+						});
+					}
+				});
+			} else {
+				console.log('find no user.');
+				res.redirect('/login');
+			}
+		});
 
 	}
 };

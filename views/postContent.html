@@ -1,25 +1,30 @@
 <% include header.html %>
 
 <div class="container">
-  <div class="col-xs-12">
-    <div class="userinfo">
-      <p>昵称：<%= user.nickn%></p>
-      <p>加入：<%= user.create_at%></p>
-      <p>心情：<%= user.mood%></p>
-      <p>签名：<%= user.autograph%></p>
-      <p>简介：<%= user.selfintro%></p>
-      <button class="btn btn-primary btn-block">修改信息</button>
-      <a>修改密码？</a>
+  <div class="row">
+  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 editSection">
+    <div class="postinfo">
+    <h4><a><%= post.postTitle %></a></h4>
+    <p class="info">
+        作者：<%= post.authorname %>
+        日期：<%= post.published_at %>
+    </p>
+    <p class="postcontent"><%- post.html %></p>
+    <div class="clearfix"></div>
+  </div>
+  </div>
+  <div class="col-xs-11 col-sm-3 col-md-3 col-lg-3 userinfoSection">
+    <div class="infosection">
+    <img src="/images/write.jpg" class="img-responsive userimg" alt="Responsive image">
+    <h5 class="usermood"><a><%= user.nickn%></a></h5>
+    <p class="userautograph">加入：<span class="color_6f6f6f"><%= user.create_at %></span></p>
+    <p class="userautograph">心情：<span class="color_6f6f6f"><%= user.mood%></span></p>
+    <p class="userautograph">签名：<span class="color_6f6f6f"><%= user.autograph%></span></p>
+    <p class="userautograph">自我介绍：<span class="color_6f6f6f"><%= user.selfintro%></span></p>
     </div>
-    <form class="form-signin hidden" method="post">
-      <h3 class="form-signin-heading text-left">修改信息</h3>
-      <input type="text" name="nickn" class="form-control" placeholder="昵称" required>
-      <input type="text" name="mood" class="form-control" placeholder="心情">
-      <input type="text" name="autograph" class="form-control" placeholder="签名">
-      <input type="text" name="selfintro" class="form-control" placeholder="简介">
-      <button class="btn btn-primary btn-block" type="submit">好了</button>
-    </form>
+    <div class="clearfix"></div>
   </div>
 </div>
-
+</div>
+<div class="clearfix"></div>
 <% include footer.html %>
