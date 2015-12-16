@@ -62,8 +62,8 @@ a:link,a:visited,a:hover,a:active{ text-decoration: none;}
 .userpagePosts{ padding:0; margin-top: 0;}
 .userpagePosts li{ list-style: none; padding: 0.2rem; border-bottom: 1px dashed #ccc; padding-bottom: 1rem; padding-top: 0.7rem;} 
 .userpagePosts li:first{ padding-top: 0;}
-.userpagePosts .info{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem;color: #999;}
-.userpagePosts p{font-size: 0.7rem; color: #333;}
+.userpagePosts .info{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.5rem;color: #999;}
+.userpagePosts p{font-size: 0.6rem; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color: #333;}
 .usercenterinfo{ padding: 1rem; background: #efefef;}
 .usercenterinfo p{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem;color: #999;}
 .changepwd{ display: inline-block; margin-left: 2rem; font-size: 0.7rem; cursor: pointer;}
@@ -73,3 +73,5 @@ a:link,a:visited,a:hover,a:active{ text-decoration: none;}
 .postinfo{ margin-bottom: 1rem; /* background: #F8FAFF;  */padding: 0.5rem;}
 .postinfo p{ font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem;color: #232323;}
 .postinfo .info{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.5rem;color: #999;}
+.postcontentBtn{margin-top:2rem; text-align: left;}
+.postcontentBtn a{display: inline-block;}

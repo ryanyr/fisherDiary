@@ -4,7 +4,7 @@
     <% if(!loged){ %>
       <a href="/login">注册/登录</a>
     <% }else{ %>
-    欢迎回来，<a><%= user.nickn %></a>
+    欢迎回来，<a href="/userPage"><%= user.nickn %></a>
     <% } %>
     </p>
 </div>
@@ -36,11 +36,11 @@
               日期：
               <%= post.published_at %>
             </p>
-            <p>
+            <div class="postCondetail">
               <%- post.html %>
-            </p>
+            </div>
             <p>
-              <a class="" href="#">查看全文 &raquo;</a>
+              <a class="" href="/post/<%= post._id %>">查看全文 &raquo;</a>
             </p>
           </div>
           <div class="clear"></div>

@@ -2,29 +2,62 @@
 
 <div class="container">
   <div class="row">
-  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 editSection">
-    <div class="postinfo">
-    <h4><a><%= post.postTitle %></a></h4>
-    <p class="info">
-        作者：<%= post.authorname %>
-        日期：<%= post.published_at %>
-    </p>
-    <p class="postcontent"><%- post.html %></p>
-    <div class="clearfix"></div>
-  </div>
-  </div>
-  <div class="col-xs-11 col-sm-3 col-md-3 col-lg-3 userinfoSection">
-    <div class="infosection">
-    <img src="/images/write.jpg" class="img-responsive userimg" alt="Responsive image">
-    <h5 class="usermood"><a><%= user.nickn%></a></h5>
-    <p class="userautograph">加入：<span class="color_6f6f6f"><%= user.create_at %></span></p>
-    <p class="userautograph">心情：<span class="color_6f6f6f"><%= user.mood%></span></p>
-    <p class="userautograph">签名：<span class="color_6f6f6f"><%= user.autograph%></span></p>
-    <p class="userautograph">自我介绍：<span class="color_6f6f6f"><%= user.selfintro%></span></p>
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 editSection">
+      <div class="postinfo">
+        <h4>
+          <a href="/post/<%= post._id %>">
+            <%= post.postTitle %></a>
+        </h4>
+        <p class="info">
+          作者：
+          <a class="user-author" href="/user/<%= post.authorid %>">
+            <%= post.authorname %></a>
+          &nbsp;
+        日期：
+          <%= post.published_at %></p>
+        <p class="postcontent">
+          <%- post.html %></p>
+        <% if( post.authorname == user.nickn) { %>
+        <p class="postcontentBtn">
+          <a href="/edit/<%= post._id %>" class="btn btn-primary btn-xs">编辑</a>
+          &nbsp;&nbsp;
+          <a id="deletePost" postid="<%= post._id %>" class="btn btn-default btn-xs">删除</a>
+        </p>
+        <% } %>
+        <div class="clearfix"></div>
+      </div>
     </div>
-    <div class="clearfix"></div>
+    <div class="col-xs-11 col-sm-3 col-md-3 col-lg-3 userinfoSection">
+      <div class="infosection">
+        <img src="/images/write.jpg" class="img-responsive userimg" alt="Responsive image">
+        <h5 class="usermood">
+          <a href="/user/<%= post.authorid %>">
+            <%= author.nickn%></a>
+        </h5>
+        <p class="userautograph">
+          加入：
+          <span class="color_6f6f6f">
+            <%= author.create_at %></span>
+        </p>
+        <p class="userautograph">
+          心情：
+          <span class="color_6f6f6f">
+            <%= author.mood%></span>
+        </p>
+        <p class="userautograph">
+          签名：
+          <span class="color_6f6f6f">
+            <%= author.autograph%></span>
+        </p>
+        <p class="userautograph">
+          自我介绍：
+          <span class="color_6f6f6f">
+            <%= author.selfintro%></span>
+        </p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
   </div>
-</div>
 </div>
 <div class="clearfix"></div>
 <% include footer.html %>

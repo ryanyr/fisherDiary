@@ -203,6 +203,7 @@ module.exports = {
 			if (data) {
 				console.log('find user info.');
 				userdata = data;
+				console.log(userdata);
 				Post.findOne({
 					_id: postid
 				}).exec(function(err, post) {
@@ -210,15 +211,22 @@ module.exports = {
 					if (post) {
 						console.log(post);
 						postinfo = post;
-						res.render('postContent', {
+						User.findOne({
+							_id : postinfo.authorid
+						}).exec(function(err, author){
+							if (err) return console.error(err);
+							res.render('postContent', {
 							title: '若鱼日记-设置',
 							user: userdata,
+							author: author,
 							post: postinfo,
 							loged: logflag,
-							liFlag: 6,
+							liFlag: 0,
 							success: req.flash('success').toString(),
 							error: req.flash('error').toString()
 						});
+						});
+						
 					}
 				});
 			} else {
@@ -226,6 +234,53 @@ module.exports = {
 				res.redirect('/login');
 			}
 		});
-
 	}
+
+	,
+	authorPage: function(req, res) {
+		var logflag = true;
+		if (req.session.user === undefined || req.session.user === null) {
+			logflag = false;
+			res.redirect('/login');
+		}
+		var authorid = req.params.authorid;
+		console.log(authorid);
+		var userid = req.session.user._id;
+		var postinfo;
+		var userdata;
+		var authordata;
+		User.findOne({
+			_id: authorid
+		}).exec(function(err, data) {
+			if (err) return console.error(err);
+			if (data) {
+				console.log('find user info.');
+				authordata = data;
+				Post.find({
+					authorid: authorid
+				}).sort({
+					'updated_at': -1
+				}).exec(function(err, posts) {
+					if (err) return console.error(err);
+					if (posts) {
+						console.log(posts);
+						res.render('authorPage', {
+							title: '若鱼日记-设置',
+							user: req.session.user,
+							author: authordata,
+							posts: posts,
+							loged: logflag,
+							liFlag: 0,
+							success: req.flash('success').toString(),
+							error: req.flash('error').toString()
+						});
+					}
+				});
+			} else {
+				console.log('find no user.');
+				res.redirect('/homepage');
+			}
+		});
+	}
+
 };
