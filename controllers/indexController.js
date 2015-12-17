@@ -212,21 +212,21 @@ module.exports = {
 						console.log(post);
 						postinfo = post;
 						User.findOne({
-							_id : postinfo.authorid
-						}).exec(function(err, author){
+							_id: postinfo.authorid
+						}).exec(function(err, author) {
 							if (err) return console.error(err);
 							res.render('postContent', {
-							title: '若鱼日记-设置',
-							user: userdata,
-							author: author,
-							post: postinfo,
-							loged: logflag,
-							liFlag: 0,
-							success: req.flash('success').toString(),
-							error: req.flash('error').toString()
+								title: '若鱼日记-设置',
+								user: userdata,
+								author: author,
+								post: postinfo,
+								loged: logflag,
+								liFlag: 0,
+								success: req.flash('success').toString(),
+								error: req.flash('error').toString()
+							});
 						});
-						});
-						
+
 					}
 				});
 			} else {

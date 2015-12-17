@@ -24,13 +24,14 @@ $(function() {
 			var postid = $(this).attr('postid');
 			console.log(postid);
 			$.ajax({
-                url : '/admin/content/' + id,
+                url : '/delete/' + postid,
                 dateType : 'json',
                 type : 'DELETE'
             }).done(function (data) {
                 console.log(data);
                 if(data){
-                    $self.closest('li').remove();
+                    alert("删除成功");
+                    window.location.href = '/userPage';
                 }
             });
 		} else {
