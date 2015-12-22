@@ -12,6 +12,7 @@ module.exports = {
 			'updated_at': -1
 		}).exec(function(err, data) {
 			var posts = [];
+			var users = [];
 			if (err) return console.error(err);
 			if (data) {
 				console.log('find posts.');
@@ -20,13 +21,24 @@ module.exports = {
 				console.log('no posts.');
 				posts = [];
 			}
-			res.render('index', {
+			User.find({}).sort({'create_at':-1}).exec(function(err,data){
+				if (err) return console.error(err);
+				if (data) {
+				console.log('find users.');
+				users = data;
+				res.render('index', {
 				title: '若鱼日记',
 				posts: posts,
+				users: users,
 				liFlag: 1,
 				user: req.session.user,
 				loged: logflag
+				});
+				} else {
+					console.log('no users.');
+				}
 			});
+			
 		});
 
 	}

@@ -52,11 +52,9 @@
 
       <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
         <ul class="newsinfo">
-          <li><a>Tofu</a>加入了若鱼</li>
-          <li><a>Ryan</a>加入了若鱼</li>
-          <li><a>Chris</a>加入了若鱼</li>
-          <li><a>陈先生</a>加入了若鱼</li>
-          <li><a>秋无意</a>加入了若鱼</li>          
+         <% users.forEach(function (user, index) { %>
+          <li><a href="/user/<%= user._id %>"><%= user.nickn %></a>加入了若鱼</li>
+        <% }) %>   
         </ul>
       </div>
     </div>

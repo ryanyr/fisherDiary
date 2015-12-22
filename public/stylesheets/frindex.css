@@ -78,4 +78,5 @@ a:link,a:visited,a:hover,a:active{ text-decoration: none;}
 .postinfo .info{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.5rem;color: #999;}
 .postcontentBtn{margin-top:2rem; text-align: left;}
 .postcontentBtn a{display: inline-block;}
-.newsinfo{font-size: 0.5rem;color: #333;}
+.newsinfo{font-size: 0.5rem;color: #999;}
+.newsinfo li{line-height: 1.2rem; list-style: none;}
