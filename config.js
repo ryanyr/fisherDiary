@@ -1,6 +1,6 @@
 var config = {
 
-    cookieSecret : "fisherDiary",
+    cookieSecret : "fishDiary",
     database : {
         client : 'mongodb',
         connection : {
