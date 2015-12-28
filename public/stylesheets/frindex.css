@@ -80,3 +80,4 @@ a:link,a:visited,a:hover,a:active{ text-decoration: none;}
 .postcontentBtn a{display: inline-block;}
 .newsinfo{font-size: 0.5rem;color: #999; padding-left: 0;}
 .newsinfo li{line-height: 1.2rem; list-style: none;}
+.newslink{ font-size: 0.5rem; float: right;}

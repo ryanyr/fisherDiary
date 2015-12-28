@@ -21,6 +21,8 @@ module.exports = function(){
 
 	indexRouter.route('/user/:authorid').get(indexController.authorPage);
 
+	indexRouter.route('/newusers').get(indexController.newUsers);
+
 
 	return indexRouter;
 }

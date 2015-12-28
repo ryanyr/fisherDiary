@@ -1,0 +1,16 @@
+<% include header.html %>
+
+<div class="container">
+<% users.forEach(function (user, index) { %>
+    <div class="col-xs-12 col-s-4 col-md-4 col-lg-4">
+    <div class="usercenterinfo">
+      <p>昵称：<a><%= user.nickn%></a></p>
+      <p>加入：<a><%= user.create_at%></a></p>
+      <p class="text-right"><a href="/user/<%= user._id %>">去看看</a></p>      
+    </div>
+    <hr>
+  </div>
+<% }) %>
+</div>
+
+<% include footer.html %>

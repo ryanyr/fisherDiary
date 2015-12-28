@@ -297,4 +297,35 @@ module.exports = {
 		});
 	}
 
+
+	,
+	newUsers: function(req, res) {
+		var logflag = true;
+		if (req.session.user === undefined || req.session.user === null) {
+			logflag = false;
+			res.redirect('/login');
+		}
+		var userdatas;
+		User.find({}).exec(function(err, data) {
+			if (err) return console.error(err);
+			if (data) {
+				console.log('find user info.');
+				userdatas = data;
+			} else {
+				console.log('find no user.');
+				res.redirect('/homepage');
+			}
+			res.render('newUsers', {
+				title: '若鱼日记-用户',
+				user: req.session.user,
+				users: userdatas,
+				loged: logflag,
+				liFlag: 0,
+				success: req.flash('success').toString(),
+				error: req.flash('error').toString()
+			});
+		});
+	}
+
+
 };

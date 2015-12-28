@@ -1,65 +1,76 @@
 <% include header.html %>
 <div class="container">
-    <p>
+  <p>
     <% if(!loged){ %>
-      <a href="/login">注册/登录</a>
+    <a href="/login">注册/登录</a>
     <% }else{ %>
-    欢迎回来，<a href="/userPage"><%= user.nickn %></a>
-    <% } %>
-    </p>
+    欢迎回来，
+    <a href="/userPage">
+      <%= user.nickn %></a>
+    <% } %></p>
 </div>
 <div class="container">
-    <div class="row row-offcanvas row-offcanvas-right">
-      <div class="col-xs-12 col-sm-9">      
-        <p class="pull-right visible-xs">
-          <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">动态</button>
-        </p>
-        <div class="jumbotron">
-          <h2>若鱼日记</h2>
-          <p>万语千言，若鱼无声。</p>
-          <p>嗨，我等你很久了。</p>
-        </div>
-        <div class="row">
-        <ul class="marpad0">
-        <% posts.forEach(function (post, index) { %>
-        <li class="marpad0 postlist">
-          <div class="col-xs-12 col-lg-10 marpad0">
-            <h4>
-            <a href="/post/<%= post._id %>">
-              <%= post.postTitle %></a>
-            </h4>
-            <p class="info">
-              作者：
-              <a class="user-author" href="/user/<%= post.authorid %>">
-                <%= post.authorname %>
-              </a>&nbsp;
-              日期：
-              <%= post.published_at %>
-            </p>
-            <div class="postCondetail">
-              <%- post.html %>
-            </div>
-            <p>
-              <a class="" href="/post/<%= post._id %>">查看全文 &raquo;</a>
-            </p>
-          </div>
-          <div class="clear"></div>
-        </li>
-        <% }) %>  
-        </ul>        
-        </div>
+  <div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+      <p class="pull-right visible-xs">
+        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">动态</button>
+      </p>
+      <div class="jumbotron">
+        <h2>若鱼日记</h2>
+        <p>万语千言，若鱼无声。</p>
+        <p>嗨，我等你很久了。</p>
       </div>
-
-      <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-        <p><a>动态</a></p>
-        <hr>
-        <ul class="newsinfo">
-         <% users.forEach(function (user, index) { %>
-          <li><a href="/user/<%= user._id %>"><%= user.nickn %></a>加入了若鱼</li>
-        <% }) %>   
-        </ul>
+      <div class="row">
+        <ul class="marpad0">
+          <% posts.forEach(function (post, index) { %>
+          <li class="marpad0 postlist">
+            <div class="col-xs-12 col-lg-10 marpad0">
+              <h4>
+                <a href="/post/<%= post._id %>
+                  ">
+                  <%= post.postTitle %></a>
+              </h4>
+              <p class="info">
+                作者：
+                <a class="user-author" href="/user/<%= post.authorid %>
+                  ">
+                  <%= post.authorname %></a>
+                &nbsp;
+              日期：
+                <%= post.published_at %></p>
+              <div class="postCondetail">
+                <%- post.html %></div>
+              <p>
+                <a class="" href="/post/<%= post._id %>">查看全文 &raquo;</a>
+              </p>
+            </div>
+            <div class="clear"></div>
+          </li>
+          <% }) %></ul>
       </div>
     </div>
+
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+      <p>
+        <a>动态</a>
+      </p>
+      <hr>
+      <ul class="newsinfo">
+        <% users.forEach(function (user, index) { %>
+        <li>
+          <a href="/user/<%= user._id %>
+            ">
+            <%= user.nickn %></a>
+          加入了若鱼
+        </li>
+        <% }) %>
+        <br>
+        <p>
+          <a class="" href="/newusers">更多&raquo;</a>
+        </p>
+      </ul>
+    </div>
+  </div>
 
 </div>
 
