@@ -230,7 +230,7 @@ module.exports = {
 						}).exec(function(err, author) {
 							if (err) return console.error(err);
 							res.render('postContent', {
-								title: '若鱼日记-设置',
+								title: '若鱼日记-内容',
 								user: userdata,
 								author: author,
 								post: postinfo,
@@ -279,7 +279,7 @@ module.exports = {
 					if (posts) {
 						console.log(posts);
 						res.render('authorPage', {
-							title: '若鱼日记-设置',
+							title: '若鱼日记-他',
 							user: req.session.user,
 							author: authordata,
 							posts: posts,

@@ -15,6 +15,19 @@
           &nbsp;
         日期：
           <%= post.published_at %></p>
+        <p>
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style" style="display: inline-block;width: 100%;">
+            <a class="jiathis_button_tsina"></a>
+            <a class="jiathis_button_weixin"></a>
+            <a class="jiathis_button_renren"></a>
+            <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+            <a class="jiathis_counter_style"></a>
+          </div>
+          <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          <div class="clearfix"></div>
+        </p>
         <p class="postcontent">
           <%- post.html %></p>
         <% if( post.authorname == user.nickn) { %>
