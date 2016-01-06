@@ -230,7 +230,7 @@ module.exports = {
 						}).exec(function(err, author) {
 							if (err) return console.error(err);
 							res.render('postContent', {
-								title: '若鱼日记-内容',
+								title: '若鱼日记-' + post.postTitle,
 								user: userdata,
 								author: author,
 								post: postinfo,
