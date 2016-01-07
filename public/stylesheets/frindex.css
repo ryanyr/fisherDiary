@@ -41,13 +41,13 @@ a:link,a:visited,a:hover,a:active{ text-decoration: none;}
 .left{float: left;}
 .right{float: right;}
 .clear{clear: both;}
-.container .jumbotron, .container-fluid .jumbotron {padding: 1rem;border-radius: 2px;margin-bottom: 0.5rem; background: url("/images/bg1.jpg") no-repeat top/cover}
+.container .jumbotron, .container-fluid .jumbotron {padding: 1rem;border-radius: 0px;margin-bottom: 0.5rem; background: url("/images/bg1.jpg") no-repeat top/cover}
 .jumbotron h1{color:#000;margin-top: 0;}
 .jumbotron p{margin-bottom: 0;font-size: 0.8rem;font-weight: normal;}
 .logobrand{}
 .logobrand img{width: 1.2rem;height: 1.2rem;display:inline-block;}
 .logobrand span{width: auto;height: 2rem;display:inline-block; color: #fff;}
-.postlist{margin: 1rem; border-bottom: 1px dashed #999;list-style: none;}
+.postlist{margin: 1rem; border-bottom: 1px dashed #cdcdcd;list-style: none;}
 .postbox{margin: 0;}
 .postlist .info{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.5rem;color: #999;}
 .postlist p{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;color: #2e2e2e;font-size: 0.6rem;}
@@ -74,7 +74,7 @@ a:link,a:visited,a:hover,a:active{ text-decoration: none;}
 .usercenterform .selfintro{ resize:none !important;}
 .usercenterform .userinfobtn{ text-align: left; padding-top: 0.5rem;}
 .postinfo{ margin-bottom: 1rem; /* background: #F8FAFF;  */padding: 0.5rem;}
-.postinfo p{ font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem;color: #232323;}
+.postinfo p{ font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem;color: #232323;line-height: 1rem;}
 .postinfo .info{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.5rem;color: #999;}
 .postcontentBtn{margin-top:2rem; text-align: left;}
 .postcontentBtn a{display: inline-block;}
