@@ -7,7 +7,9 @@ module.exports = function(){
 
 	userRouter.route('/login').post(userController.doLogin);
 
-	userRouter.route('/userCenter').post(userController.doUserinfo);
+	userRouter.route('/user/updateUserinfo').post(userController.doUserinfo);
+
+	userRouter.route('/user/uploadimages').post(userController.doUserPic);
 
 	
 	return userRouter;

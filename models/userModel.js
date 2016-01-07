@@ -17,7 +17,10 @@ var userSchema = new Schema({
 		type:String,
 		trim:true
 	},
-	image: String,		//用户头像
+	image: {
+		type: String,
+		default: 'images/write.jpg'
+		},		//用户头像
 	selfintro: {		//自我介绍
 		type: String,
 		default: '闲来无事不从容'

@@ -10,12 +10,14 @@ module.exports = {
 		var html = markdown.toHTML(postMarkdown);
 		var authorid = req.session.user._id;
 		var authorname = req.session.user.nickn;
+		var authorimg = req.session.user.image;
 		var postdata = {
 			postTitle: postTitle,
 			postMarkdown: postMarkdown,
 			html: html,
 			authorid: authorid,
-			authorname: authorname
+			authorname: authorname,
+			authorimg: authorimg
 		};
 		var post = new Post(postdata);
 		console.log(post);

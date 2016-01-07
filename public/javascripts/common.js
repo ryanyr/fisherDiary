@@ -44,4 +44,31 @@ $(function() {
 	$("#changeinfo").on('click', function() {
 		$("#usercenterform").removeClass('hidden');
 	});
+
+$("#updateuserinfo").click(function(){
+	var nickn = $("#nickn").val();
+	var mood = $("#mood").val();
+	var autograph = $("#autograph").val();
+	var selfintro = $("#selfintro").val();
+	var upic = $("#upic").val();
+	var data = {
+		nickn : nickn,
+		mood : mood,
+		autograph : autograph,
+		selfintro : selfintro,
+		upic : upic
+	};
+	$.ajax({
+           type: "POST",
+           url: "/user/updateUserinfo",
+           data: data,
+           beforeSend: function(){
+           },
+           success: function(data){
+            alert('上传成功！');
+            window.location.reload();
+           }
+        });
+	});
+
 })

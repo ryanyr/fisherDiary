@@ -60,14 +60,14 @@ a:link,a:visited,a:hover,a:active{ text-decoration: none;}
 .savePostBtn{ width: 5rem;}
 .userinfoSection{ background: #efefef; display: inline-block; margin-left:15px; margin-right:15px; padding:1rem; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;}
 .infosection{width: 100%;}
-.userimg{ box-shadow: 5px 5px 5px #999; -webkit-box-shadow: 5px 5px 5px #999; -moz-box-shadow: 5px 5px 5px #999;}
+.userimg{ box-shadow: 5px 5px 5px #999; -webkit-box-shadow: 5px 5px 5px #999; -moz-box-shadow: 5px 5px 5px #999; max-width: 10rem; max-height: 5rem;}
 .userautograph{ display: block; margin: 0 0 10px; font-size: 0.5rem; line-height: 1.42857143;color: #333; word-break: break-all; word-wrap: break-word;}
 .userpagePosts{ padding:0; margin-top: 0;}
 .userpagePosts li{ list-style: none; padding: 0.2rem; border-bottom: 1px dashed #ccc; padding-bottom: 1rem; padding-top: 0.7rem;} 
 .userpagePosts li:first{ padding-top: 0;}
 .userpagePosts .info{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.5rem;color: #999;}
 .userpagePosts p{font-size: 0.6rem; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; color: #333;}
-.usercenterinfo{ padding: 1rem; background: #efefef;}
+.usercenterinfo{ padding: 1rem; margin:0.2rem; background: #efefef;}
 .usercenterinfo p{font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem;color: #999;}
 .changepwd{ display: inline-block; margin-left: 2rem; font-size: 0.7rem; cursor: pointer;}
 #usercenterform{ margin-top: 1rem; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 0.6rem !important;color: #999;}
@@ -81,3 +81,94 @@ a:link,a:visited,a:hover,a:active{ text-decoration: none;}
 .newsinfo{font-size: 0.5rem;color: #999; padding-left: 0;}
 .newsinfo li{line-height: 1.2rem; list-style: none;}
 .newslink{ font-size: 0.5rem; float: right;}
+.formbox {
+  margin: 0 auto; }
+  .formbox h6 {
+    margin-left: 0.2rem; }
+  .formbox input {
+    border-radius: 2px !important;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem; }
+  .formbox #choose {
+    display: none; }
+  .formbox canvas {
+    width: 100%;
+    border: 1px solid #000000; }
+  .formbox .upload-img-box {
+    display: block;
+    margin: 10px;
+    color: #989898;
+    text-align: center;
+    border: 2px dashed;
+    padding: 1.2em 0.8em;
+    cursor: pointer;
+    position: relative; }
+    .formbox .upload-img-box img.close-upload-img {
+      position: absolute;
+      top: -24px;
+      width: 45px;
+      right: -24px;
+      padding: 8px;
+      display: none; }
+    .formbox .upload-img-box .img-uploading {
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #d9d2ca;
+      height: 100%;
+      position: absolute; }
+      .formbox .upload-img-box .img-uploading .progress {
+        position: relative;
+        width: 90%;
+        height: 20px;
+        line-height: 20px;
+        top: 30px;
+        margin: 0 auto;
+        background-color: rgba(100, 149, 198, 0.5); }
+        .formbox .upload-img-box .img-uploading .progress span {
+          display: block;
+          width: 0;
+          height: 100%;
+          background-color: #6495c6;
+          text-align: center;
+          color: #FFF;
+          font-size: 13px; }
+      .formbox .upload-img-box .img-uploading .size {
+        position: relative;
+        width: 100%;
+        height: 15px;
+        line-height: 15px;
+        text-align: center;
+        font-size: 13px;
+        color: #666;
+        top: 35px; }
+  .formbox .touch {
+    background-color: #ddd; }
+  .formbox .tips {
+    text-align: center;
+    font-size: 13px;
+    margin: 10px;
+    color: #999; }
+  .formbox .pic-list {
+    margin: 10px;
+    line-height: 18px;
+    font-size: 13px; }
+    .formbox .pic-list img {
+      width: 2rem;
+      height: 2rem; }
+    .formbox .pic-list li {
+      cursor: pointer;
+      margin-bottom: 1rem; }
+    .formbox .pic-list div {
+      width: 2rem;
+      height: 2rem;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      float: right;
+      position: relative;
+      right: 3rem;
+      color: #0D244E; }
+  .formbox button {
+    border-radius: 2px !important; }
+.posicenter{ margin:0 auto;}

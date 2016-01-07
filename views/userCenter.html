@@ -3,24 +3,60 @@
 <div class="container">
   <div class="col-xs-12 col-s-6 col-md-6 col-lg-6">
     <div class="usercenterinfo">
-      <p>昵称：<a><%= user.nickn%></a></p>
-      <p>加入：<a><%= user.create_at%></a></p>
-      <p>心情：<a><%= user.mood%></a></p>
-      <p>签名：<a><%= user.autograph%></a></p>
-      <p>简介：<a><%= user.selfintro%></a></p>
+      <p>
+        昵称：
+        <a>
+          <%= user.nickn%></a>
+      </p>
+      <p>
+        加入：
+        <a>
+          <%= user.create_at%></a>
+      </p>
+      <p>
+        心情：
+        <a>
+          <%= user.mood%></a>
+      </p>
+      <p>
+        签名：
+        <a>
+          <%= user.autograph%></a>
+      </p>
+      <p>
+        简介：
+        <a>
+          <%= user.selfintro%></a>
+      </p>
+      <p class="text-left">
+        <img src="<%-user.image %>" class="img-responsive userimg" style="" alt="">
+      </p>
       <button id="changeinfo" class="btn btn-primary btn-sm">修改信息</button>
       <a class="changepwd">修改密码？</a>
     </div>
     <hr>
-    <form id="usercenterform" class="form-signin hidden usercenterform" method="post">
-    <h4 class="form-signin-heading text-left"><a>修改信息</a></h4>
-      <input type="text" name="nickn" class="form-control" placeholder="昵称" required>
-      <input type="text" name="mood" class="form-control" placeholder="心情">
-      <input type="text" name="autograph" class="form-control" placeholder="签名">
-      <textarea type="text" name="selfintro" class="form-control selfintro" rows="5" placeholder="简介"></textarea>
-      <p class="userinfobtn"><button class="btn btn-primary btn-sm text-left" type="submit">好了</button></p>
+    <form id="usercenterform" class="form-signin hidden usercenterform formbox" role="form" enctype='multipart/form-data'>
+      <h4 class="form-signin-heading text-left">
+        <a>修改信息</a>
+      </h4>
+      <input type="text" name="nickn" id="nickn" class="form-control" placeholder="昵称" required>
+      <input type="text" name="mood" id="mood" class="form-control" placeholder="心情" required>
+      <input type="text" name="autograph" id="autograph" class="form-control" placeholder="签名" required>
+      <textarea type="text" name="selfintro" id="selfintro" class="form-control selfintro" rows="5" placeholder="简介" required></textarea>
+      <input type="text" name="upic" id="upic" class="form-control" style="visibility: hidden; width:0;height:0;">
+      <h5 class="text-left" style="padding:0.5rem;">头像:<span class="tips">只支持上传jpg、png及gif</span></h5>
+      <input type="file" id="choose" name="choose" multiple accept="image/*">      
+      <div class="row">
+        <div class="col-xs-12">
+          <span data-label="recptImg" class="color-666 font-2rem upload-img-box" aria-hidden="true">
+            <img src="/images/camera.png" class="img-responsive posicenter" id="certipic" data-upload="" style="" alt="">
+            <img src="/images/close.png" class="close-upload-img posicenter" style="display: none;" alt=""></span>
+        </div>
+      </div>
+      <p class="userinfobtn">
+      <span class="btn btn-primary btn-sm text-left" id="updateuserinfo">好了</span>
+      </p>
     </form>
   </div>
 </div>
-
 <% include footer.html %>

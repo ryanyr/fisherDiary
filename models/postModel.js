@@ -9,7 +9,11 @@ var postSchema = new Schema({
 	html: String,
 	pimage: String,
 	authorid: Schema.Types.ObjectId,
-	authorname: String, 	
+	authorname: String, 
+	authorimg :{
+		type: String,
+		default: 'images/write.jpg'
+	},	
 	published_at: {			
 		type: Date,
 		default: Date.now

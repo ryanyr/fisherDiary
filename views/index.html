@@ -23,8 +23,13 @@
       <div class="row">
         <ul class="marpad0">
           <% posts.forEach(function (post, index) { %>
+          <% if(post.authorimg==null){post.authorimg = '/images/write.jpg'}%>
           <li class="marpad0 postlist">
-            <div class="col-xs-12 col-lg-10 marpad0">
+          <div class="row">
+            <div class="col-xs-2 col-lg-1">
+            <a href="/user/<%= post.authorid %>"><img src="<%= post.authorimg %>" class="img-responsive posicenter" style="margin:0.5rem;margin-left:0;width:1.5rem;height:1.5rem;" alt=""></a>
+            </div>
+            <div class="col-xs-10 col-lg-11 marpad0">
               <h4>
                 <a href="/post/<%= post._id %>
                   ">
@@ -45,6 +50,8 @@
               </p>
             </div>
             <div class="clear"></div>
+          </div>
+            
           </li>
           <% }) %></ul>
       </div>
