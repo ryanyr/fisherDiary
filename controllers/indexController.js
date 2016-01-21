@@ -10,7 +10,7 @@ module.exports = {
 		}
 		Post.find({}).sort({
 			'updated_at': -1
-		}).exec(function(err, data) {
+		}).limit(15).exec(function(err, data) {
 			var posts = [];
 			var users = [];
 			if (err) return console.error(err);
