@@ -172,3 +172,4 @@ a:link,a:visited,a:hover,a:active{ text-decoration: none;}
   .formbox button {
     border-radius: 2px !important; }
 .posicenter{ margin:0 auto;}
+.pagenav{ margin-left: 1rem;}

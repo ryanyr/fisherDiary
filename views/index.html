@@ -54,6 +54,24 @@
             
           </li>
           <% }) %></ul>
+          <!--page-->
+          <nav class="pagenav">
+            <ul class="pagination">
+            <% if (!isFirstPage) { %>
+              <li>
+                <a href="?p=<%= page-1 %>" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;上一页</span>
+                </a>
+              </li>
+            <% } %>
+              <li>
+                <a href="?p=<%= page+1 %>" aria-label="Next">
+                  <span aria-hidden="true">下一页&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!--page fin-->
       </div>
     </div>
 

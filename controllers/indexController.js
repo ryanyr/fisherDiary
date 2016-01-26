@@ -8,9 +8,10 @@ module.exports = {
 		if (req.session.user === undefined || req.session.user === null) {
 			logflag = false;
 		}
+		var page = parseInt(req.query.p) || 1;
 		Post.find({}).sort({
 			'updated_at': -1
-		}).limit(15).exec(function(err, data) {
+		}).skip((page - 1)*10).limit(10).exec(function(err, data) {
 			var posts = [];
 			var users = [];
 			if (err) return console.error(err);
@@ -32,6 +33,8 @@ module.exports = {
 						title: '若鱼日记',
 						posts: posts,
 						users: users,
+						page: page,
+					    isFirstPage: (page - 1) == 0,
 						liFlag: 1,
 						user: req.session.user,
 						loged: logflag
@@ -157,6 +160,7 @@ module.exports = {
 			logflag = false;
 			res.redirect('/login');
 		}
+		var page = parseInt(req.query.p) || 1;
 		var userid = req.session.user._id;
 		var userdata;
 		var posts = [];
@@ -176,7 +180,7 @@ module.exports = {
 				authorid: userid
 			}).sort({
 				'updated_at': -1
-			}).exec(function(err, data) {
+			}).skip((page - 1)*10).limit(10).exec(function(err, data) {
 				if (err) return console.error(err);
 				if (data) {
 					console.log('find user posts.');
@@ -191,6 +195,8 @@ module.exports = {
 					user: userdata,
 					liFlag: 4,
 					posts: posts,
+					page: page,
+					isFirstPage: (page - 1) == 0,
 					success: req.flash('success').toString(),
 					error: req.flash('error').toString()
 				});
@@ -257,6 +263,7 @@ module.exports = {
 			logflag = false;
 			res.redirect('/login');
 		}
+		var page = parseInt(req.query.p) || 1;
 		var authorid = req.params.authorid;
 		console.log(authorid);
 		var userid = req.session.user._id;
@@ -274,7 +281,7 @@ module.exports = {
 					authorid: authorid
 				}).sort({
 					'updated_at': -1
-				}).exec(function(err, posts) {
+				}).skip((page - 1)*10).limit(10).exec(function(err, posts) {
 					if (err) return console.error(err);
 					if (posts) {
 						console.log(posts);
@@ -285,6 +292,8 @@ module.exports = {
 							posts: posts,
 							loged: logflag,
 							liFlag: 0,
+							page: page,
+							isFirstPage: (page - 1) == 0,
 							success: req.flash('success').toString(),
 							error: req.flash('error').toString()
 						});

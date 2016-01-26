@@ -2,40 +2,86 @@
 
 <div class="container">
   <div class="row">
-  <div class="col-xs-11 col-sm-3 col-md-3 col-lg-3 userinfoSection">
-    <div class="infosection">
-    <img src="<%= author.image%>" class="img-responsive userimg" alt="Responsive image">
-    <h5 class="usermood"><a><%= author.nickn%></a></h5>
-    <p class="userautograph">加入：<span class="color_6f6f6f"><%= author.create_at %></span></p>
-    <p class="userautograph">心情：<span class="color_6f6f6f"><%= author.mood%></span></p>
-    <p class="userautograph">签名：<span class="color_6f6f6f"><%= author.autograph%></span></p>
-    <p class="userautograph">自我介绍：<span class="color_6f6f6f"><%= author.selfintro%></span></p>
+    <div class="col-xs-11 col-sm-3 col-md-3 col-lg-3 userinfoSection">
+      <div class="infosection">
+        <img src="<%= author.image%>
+        " class="img-responsive userimg" alt="Responsive image">
+        <h5 class="usermood">
+          <a>
+            <%= author.nickn%></a>
+        </h5>
+        <p class="userautograph">
+          加入：
+          <span class="color_6f6f6f">
+            <%= author.create_at %></span>
+        </p>
+        <p class="userautograph">
+          心情：
+          <span class="color_6f6f6f">
+            <%= author.mood%></span>
+        </p>
+        <p class="userautograph">
+          签名：
+          <span class="color_6f6f6f">
+            <%= author.autograph%></span>
+        </p>
+        <p class="userautograph">
+          自我介绍：
+          <span class="color_6f6f6f">
+            <%= author.selfintro%></span>
+        </p>
+      </div>
+      <div class="clearfix"></div>
     </div>
-    <div class="clearfix"></div>
-  </div>
-  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 editSection">
-  <ul class="userpagePosts">
-    <% posts.forEach(function (post, index) { %>
-    <li>
-    <h4><a href="/post/<%= post._id %>"><%= post.postTitle %></a></h4>
-    <p class="info">
-        作者：<a class="user-author" href="/user/<%= post.authorid %>">
-          <%= post.authorname %>
-        </a>&nbsp;
-        日期：<%= post.published_at %>
-    </p>
-    <div class="postCondetail"><%- post.html %></div>
-    <p>
-      <a class="" href="/post/<%= post._id %>">查看全文 &raquo;</a>
-    </p>
-    <div class="clearfix"></div>
-    </li>
-    <% }) %>
-  </ul>
-    <div class="clearfix"></div>
-  </div>
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 editSection">
+      <ul class="userpagePosts">
+        <% posts.forEach(function (post, index) { %>
+        <li>
+          <h4>
+            <a href="/post/<%= post._id %>
+              ">
+              <%= post.postTitle %></a>
+          </h4>
+          <p class="info">
+            作者：
+            <a class="user-author" href="/user/<%= post.authorid %>
+              ">
+              <%= post.authorname %></a>
+            &nbsp;
+        日期：
+            <%= post.published_at %></p>
+          <div class="postCondetail">
+            <%- post.html %></div>
+          <p>
+            <a class="" href="/post/<%= post._id %>">查看全文 &raquo;</a>
+          </p>
+          <div class="clearfix"></div>
+        </li>
+        <% }) %></ul>
+      <!--page-->
+      <nav class="pagenav">
+        <ul class="pagination">
+          <% if (!isFirstPage) { %>
+          <li>
+            <a href="?p=<%= page-1 %>
+              " aria-label="Previous">
+              <span aria-hidden="true">&laquo;上一页</span>
+            </a>
+          </li>
+          <% } %>
+          <li>
+            <a href="?p=<%= page+1 %>
+              " aria-label="Next">
+              <span aria-hidden="true">下一页&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!--page fin-->
+      <div class="clearfix"></div>
+    </div>
 
-</div>
+  </div>
 </div>
 <div class="clearfix"></div>
 <% include footer.html %>
