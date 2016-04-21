@@ -19,7 +19,7 @@ var userSchema = new Schema({
 	},
 	image: {
 		type: String,
-		default: 'images/write.jpg'
+		default: '../images/write.jpg'
 		},		//用户头像
 	selfintro: {		//自我介绍
 		type: String,
@@ -37,11 +37,11 @@ var userSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: 'posts'
 	},
-	follower: {			//被关注，粉丝数
+	followernum: {			//被关注，粉丝数
 		type: Number,
 		default: 0
 	},	
-	follow: {			//关注数
+	followernum: {			//关注数
 		type: Number,
 		default: 0
 	},	
@@ -52,7 +52,15 @@ var userSchema = new Schema({
 	create_at: {			
 		type: Date,
 		default: Date.now
-	}
+	},
+	messages: [   //单页留言数据
+		{
+			uuid:Schema.Types.ObjectId,
+			uuname:String,			
+			uuself:String,
+			content:String
+		}
+	]
 });
 
 module.exports = mongoose.model('user', userSchema);//创造model模型
