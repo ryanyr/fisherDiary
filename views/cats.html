@@ -1,0 +1,102 @@
+<% include header.html %>
+<div class="container">
+  <p>
+    <% if(!loged){ %>
+    <a href="/login">注册/登录</a>
+    <% }else{ %>
+    欢迎回来，
+    <a href="/userPage">
+      <%= user.nickn %></a>
+    <% } %></p>
+</div>
+<div class="container">
+  <div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+      <p class="pull-right visible-xs">
+        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">动态</button>
+      </p>
+      <div class="jumbotron">
+        <h2>若鱼日记</h2>
+        <p>万语千言，若鱼无声。</p>
+        <p>嗨，我等你很久了。</p>
+      </div>
+      <div class="row">
+        <ul class="marpad0">
+          <% posts.forEach(function (post, index) { %>
+          <% if(post.authorimg==null){post.authorimg = '/images/write.jpg'}%>
+          <li class="marpad0 postlist">
+          <div class="row">
+            <div class="col-xs-2 col-lg-1">
+            <a href="/user/<%= post.authorid %>"><img src="<%= post.authorimg %>" class="img-responsive posicenter" style="margin:0.5rem;margin-left:0;width:1.5rem;height:1.5rem;" alt=""></a>
+            </div>
+            <div class="col-xs-10 col-lg-11 marpad0" style="padding:0.2rem;">
+              <h4>
+                <a href="/post/<%= post._id %>
+                  ">
+                  <%= post.postTitle %></a>
+              </h4>
+              <p class="info">
+                作者：
+                <a class="user-author" href="/user/<%= post.authorid %>
+                  ">
+                  <%= post.authorname %></a>
+                &nbsp;
+              日期：
+                <%= post.published_at %></p>
+              <div class="postCondetail">
+                <%- post.html %></div>
+              <p>
+                <a class="" href="/post/<%= post._id %>">查看全文 &raquo;</a>
+              </p>
+            </div>
+            <div class="clear"></div>
+          </div>
+            
+          </li>
+          <% }) %></ul>
+          <!--page-->
+          <nav class="pagenav">
+            <ul class="pagination">
+            <% if (!isFirstPage) { %>
+              <li>
+                <a href="?p=<%= page-1 %>" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;上一页</span>
+                </a>
+              </li>
+            <% } %>
+              <li>
+                <a href="?p=<%= page+1 %>" aria-label="Next">
+                  <span aria-hidden="true">下一页&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!--page fin-->
+      </div>
+    </div>
+
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+      <p>
+        <a>动态</a>
+      </p>
+      <hr>
+      <ul class="newsinfo">
+        <% users.forEach(function (user, index) { %>
+        <li>
+          <a href="/user/<%= user._id %>
+            ">
+            <%= user.nickn %></a>
+          加入了若鱼
+        </li>
+        <% }) %>
+        <br>
+        <p>
+          <a class="" href="/newusers">更多&raquo;</a>
+        </p>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<% include footer.html %>
